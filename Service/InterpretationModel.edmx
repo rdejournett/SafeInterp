@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SafeInterpretModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LabLookup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FacilityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LabName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CommonLabName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LabCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResultName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CommonResultName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResultCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="ResultValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="CanSkip" Type="bit" />
+          <Property Name="IsPositive" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="SafeInterpretModelStoreContainer">
+          <EntitySet Name="LabLookup" EntityType="Self.LabLookup" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SafeInterpretModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LabLookup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FacilityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LabName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CommonLabName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LabCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResultName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CommonResultName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResultCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ResultValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CanSkip" Type="Boolean" />
+          <Property Name="IsPositive" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="InterpretationDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LabLookups" EntityType="Self.LabLookup" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SafeInterpretModelStoreContainer" CdmEntityContainer="InterpretationDBContext">
+          <EntitySetMapping Name="LabLookups">
+            <EntityTypeMapping TypeName="SafeInterpretModel.LabLookup">
+              <MappingFragment StoreEntitySet="LabLookup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+                <ScalarProperty Name="LabName" ColumnName="LabName" />
+                <ScalarProperty Name="CommonLabName" ColumnName="CommonLabName" />
+                <ScalarProperty Name="LabCode" ColumnName="LabCode" />
+                <ScalarProperty Name="ResultName" ColumnName="ResultName" />
+                <ScalarProperty Name="CommonResultName" ColumnName="CommonResultName" />
+                <ScalarProperty Name="ResultCode" ColumnName="ResultCode" />
+                <ScalarProperty Name="ResultValue" ColumnName="ResultValue" />
+                <ScalarProperty Name="CanSkip" ColumnName="CanSkip" />
+                <ScalarProperty Name="IsPositive" ColumnName="IsPositive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

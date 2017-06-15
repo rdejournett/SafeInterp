@@ -1,6 +1,6 @@
 ﻿using System.ServiceProcess;
 
-namespace WindowsService1
+namespace InterpCheckSvc
 {
     static class Program
     {

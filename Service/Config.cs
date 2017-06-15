@@ -2,7 +2,7 @@
 using System.Configuration;
 using Newtonsoft.Json;
 
-namespace CheckinSvc
+namespace InterpCheckSvc
 {
     class Config {
         // Database stuff
@@ -33,7 +33,8 @@ namespace CheckinSvc
             DatabaseUser =      ConfigurationManager.AppSettings["DatabaseUser"];
             string encrypt =    ConfigurationManager.AppSettings["DatabasePassword"];
 
-            DatabasePassword =  Crypto.DecryptStringAES(encrypt, "*08oate");
+            //DatabasePassword =  Crypto.DecryptStringAES(encrypt, "*08oate");
+            DatabasePassword = encrypt;
 
             IntegrationID =     ConfigurationManager.AppSettings["IntegrationID"];
             GroupID =           ConfigurationManager.AppSettings["GroupID"];

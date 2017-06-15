@@ -1,4 +1,4 @@
-﻿using CheckinSvc;
+﻿
 using InterpCheckSvc;
 using System;
 using System.Diagnostics;
@@ -9,7 +9,8 @@ using System.ServiceModel.Web;
 using System.ServiceProcess;
 using System.Windows.Forms;
 
-namespace WindowsService1
+namespace InterpCheckSvc
+
 {
     public partial class Main : ServiceBase
     {
@@ -47,13 +48,6 @@ namespace WindowsService1
             StartWebService();
             config = new Config();
             config.ReadConfig();
-
-            //aTimer = new System.Timers.Timer(1000 * 60);  // run every minute
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            //aTimer.Enabled = true;
-            WriteToLog("OnTimedEvent registered - polling freq is " + aTimer.Interval.ToString());
-            OnTimedEvent(null, null); // do the first tick
-
         }
 
         protected override void OnStop()
@@ -65,13 +59,6 @@ namespace WindowsService1
             eventLog1.WriteEntry(s);
         }
 
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            // tick
-
-            //GetDataFromCPS();
-
-        }
 
         private void StartWebService()
         {
@@ -117,12 +104,6 @@ namespace WindowsService1
             }
 
         }
-
-        // ---- Create Event Log Source ---------------------------------
-        //
-        // returns True if is it created or already exists.
-        //
-        // Only administrators can create event logs.
 
         static public bool CreateEventLogSource()
         {
